@@ -15,8 +15,20 @@ public class ClockAnimation extends JFrame {
 		super();
 		setLayout(new GridLayout(1, 2));
 		
-		add(clock);
-		add(clockJP);
+		JPanel p1 = new JPanel(new BorderLayout());
+		JLabel lblTH = new JLabel("Thailand Time", SwingConstants.CENTER);
+		p1.add(lblTH, BorderLayout.NORTH);
+		p1.add(clock, BorderLayout.CENTER);
+
+		// Panel for Japan/Offset Clock
+		JPanel p2 = new JPanel(new BorderLayout());
+		JLabel lblJP = new JLabel("Japan Time", SwingConstants.CENTER);
+		p2.add(lblJP, BorderLayout.NORTH);
+		p2.add(clockJP, BorderLayout.CENTER);
+
+		// Add both wrapped panels to the grid layout
+		add(p1);
+		add(p2);
 
 		// Create a timer with delay 1000 ms
 		Timer timer = new Timer(1000, new TimerListener());
